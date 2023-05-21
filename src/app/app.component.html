@@ -1,0 +1,72 @@
+<div class="center">
+  <mat-card class="searchCard">
+    <mat-card-header class="justify-center m-2">
+      <mat-icon fontIcon="search" />
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Search Rick and Morty character..."
+          [(ngModel)]="searchValue"
+          (ngModelChange)="changed($event)"
+        />
+      </mat-form-field>
+      <mat-list *ngIf="allCharacters && allCharacters.length">
+        <mat-list-item *ngFor="let character of allCharacters">
+          {{ character.name }}
+          <button
+            class="cursor-pointer"
+            matListItemMeta
+            mat-icon-button
+            (click)="addCharacter(character)"
+            title="Save"
+          >
+            <mat-icon fontIcon="save"></mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
+      <div *ngIf="exist" class="toast">
+        The last character you´ve been tried already exist
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div *ngIf="characters && characters.length" class="flex-container">
+    <mat-card *ngFor="let character of characters" class="m-2">
+      <mat-card-header class="align-center mb-2">
+        <div class="title">{{ character.name }}</div>
+        <mat-chip
+          class="ml-auto"
+          [ngClass]="character.status === 'Alive' ? 'custom-primary ' : ''"
+        >
+          {{ character.status }}
+        </mat-chip>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="image-container">
+          <img
+            mat-card-image
+            src="{{ character.image }}"
+            alt="{{ character.name }}"
+          />
+        </div>
+        <div class="action-icons">
+          <mat-icon
+            fontIcon="edit"
+            title="Edit"
+            (click)="openDialog(character)"
+            class="cursor-pointer edit"
+          />
+          <mat-icon
+            fontIcon="delete"
+            title="Delete"
+            (click)="deleteCharacter(character)"
+            class="cursor-pointer delete"
+          />
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
