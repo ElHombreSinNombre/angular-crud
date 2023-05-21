@@ -1,0 +1,82 @@
+<main class="center">
+  <mat-card class="searchCard">
+    <mat-card-header class="justify-center m-2">
+      <mat-icon fontIcon="search" />
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Search Rick and Morty character..."
+          [(ngModel)]="searchValue"
+          (ngModelChange)="changed($event)"
+          />
+        </mat-form-field>
+        @if (allCharacters && allCharacters.length) {
+          <mat-list>
+            @for (character of allCharacters; track character) {
+              <mat-list-item>
+                {{ character.name }}
+                <button
+                  class="cursor-pointer"
+                  matListItemMeta
+                  mat-icon-button
+                  (click)="addCharacter(character)"
+                  title="Save"
+                  >
+                  <mat-icon fontIcon="save"></mat-icon>
+                </button>
+              </mat-list-item>
+            }
+          </mat-list>
+        }
+        @if (exist) {
+          <article class="toast">
+            The last character you´ve been tried already exist
+          </article>
+        }
+      </mat-card-content>
+    </mat-card>
+    @if (characters && characters.length) {
+      <section class="flex-container">
+        @for (character of characters; track character) {
+          <mat-card class="m-2">
+            <mat-card-header class="align-center mb-2">
+              <article class="title">{{ character.name }}</article>
+              <mat-chip
+                class="ml-auto"
+                [ngClass]="character.status === 'Alive' ? 'custom-primary ' : ''"
+                >
+                {{ character.status }}
+              </mat-chip>
+            </mat-card-header>
+            <mat-card-content>
+              <article class="image-container">
+                <img
+                  mat-card-image
+                  src="{{ character.image }}"
+                  alt="{{ character.name }}"
+                  />
+                </article>
+                <article class="action-icons">
+                  <mat-icon
+                    fontIcon="edit"
+                    title="Edit"
+                    (click)="openDialog(character)"
+                    class="cursor-pointer edit"
+                    />
+                    <mat-icon
+                      fontIcon="delete"
+                      title="Delete"
+                      (click)="deleteCharacter(character)"
+                      class="cursor-pointer delete"
+                      />
+                    </article>
+                  </mat-card-content>
+                </mat-card>
+              }
+            </section>
+          }
+        </main>
+
+        <router-outlet></router-outlet>
