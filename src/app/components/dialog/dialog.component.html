@@ -3,11 +3,11 @@
     <mat-form-field class="full-width">
       <input matInput placeholder="Name" [(ngModel)]="name" />
     </mat-form-field>
-    <div class="flex justify-center mb-4">
+    <article class="flex justify-center mb-4">
       <mat-slide-toggle [(ngModel)]="status" color="primary">{{
         status ? "Alive" : "Dead"
       }}</mat-slide-toggle>
-    </div>
+    </article>
     <button
       class="full-width"
       mat-raised-button
