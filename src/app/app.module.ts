@@ -16,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CharacterReducer } from '../app/store/reducer/Character';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogComponent } from './components/dialog/dialog.component';
+import { DialogComponent } from '@/components/dialog/dialog.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 

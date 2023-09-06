@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { DataStore } from './store/Character';
 import { Character } from './models/Character';
-import { DialogComponent } from './components/dialog/dialog.component';
+import { DialogComponent } from '@/components/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import debounce from './utils/debounce';
 
 @Component({
   selector: 'app-root',
@@ -31,11 +32,12 @@ export class AppComponent {
     if (this.searchValue === '') {
       this.allCharacters = undefined;
     } else {
-      setTimeout(() => {
+      const debouncedFetch = debounce(() => {
         this.dataStore.getAllData(newValue).subscribe((data) => {
           this.allCharacters = data.data.characters.results;
         });
       }, 300);
+      debouncedFetch();
     }
   }
 
