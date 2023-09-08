@@ -32,11 +32,12 @@ export class AppComponent {
     if (this.searchValue === '') {
       this.allCharacters = undefined;
     } else {
-      debounce(() => {
+      const debouncedFetch = debounce(() => {
         this.dataStore.getAllData(newValue).subscribe((data) => {
           this.allCharacters = data.data.characters.results;
         });
       }, 300);
+      debouncedFetch();
     }
   }
 
