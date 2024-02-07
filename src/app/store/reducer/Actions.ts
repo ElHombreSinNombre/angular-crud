@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Character } from '../../models/Character';
+import { Character } from '../../types/Character';
 
 export const editData = createAction(
   'character/edit',

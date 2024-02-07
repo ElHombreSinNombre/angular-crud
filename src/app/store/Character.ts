@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataGetter } from '../data/Character';
 import { Observable } from 'rxjs';
-import { Character } from '../models/Character';
+import { Character } from '../types/Character';
 import { editData, saveData, removeData } from './reducer/Actions';
 import { Store, select } from '@ngrx/store';
 import { DataState } from './reducer/Character';

@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Character } from 'src/app/models/Character';
+import { Character } from 'src/app/types/Character';
 import { DataStore } from 'src/app/store/Character';
 
 @Component({

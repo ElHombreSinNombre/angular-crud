@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DataStore } from './store/Character';
-import { Character } from './models/Character';
+import { Character } from './types/Character';
 import { DialogComponent } from '@/components/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import debounce from './utils/debounce';

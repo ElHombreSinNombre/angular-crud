@@ -1,5 +1,5 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import { Character } from '../../models/Character';
+import { Character } from '../../types/Character';
 import { editData, saveData, removeData } from './Actions';
 
 export interface DataState {
