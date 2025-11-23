@@ -1,5 +1,7 @@
 # CRUD
 
+A application demonstrating **C**reate, **R**ead, **U**pdate, and **D**elete operations using Angular
+
 ## Technologies
 
 - **[Angular](https://angular.io)**
