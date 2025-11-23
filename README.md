@@ -11,6 +11,8 @@ A application demonstrating **C**reate, **R**ead, **U**pdate, and **D**elete ope
 
 ## How to deploy
 
+Run the following commands in your terminal
+
 ```bash
 npm install
 ng serve
